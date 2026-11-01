@@ -38,9 +38,28 @@ These are my current learning interests, not claims of expertise.
   <img src="assets/trail.gif" alt="Learning route: Java backend now; AI applications next; Coding Agents and Agent Systems as the longer-term direction." width="100%">
 </picture>
 
-- **Now · Java backend** — strengthen the fundamentals and learn by building.
-- **Next · AI applications** — explore how models and tools fit into useful software.
-- **Direction · Coding Agents / Agent Systems** — work towards systems that can plan, use tools and assist with development.
+Select a waypoint to expand it.
+
+<details>
+<summary><strong>01 · NOW — Java backend</strong></summary>
+
+Strengthening the fundamentals and learning by building. This is the current focus, with Java backend development as the active trail.
+
+</details>
+
+<details>
+<summary><strong>02 · NEXT — AI applications</strong></summary>
+
+Exploring how models and tools fit into useful software. This is the next direction, not a completed skill.
+
+</details>
+
+<details>
+<summary><strong>03 · DIRECTION — Coding Agents / Agent Systems</strong></summary>
+
+Working towards systems that can plan, use tools and assist with development. This remains a longer-term direction rather than a current claim of expertise.
+
+</details>
 
 This is a direction of travel, not a completed checklist.
 
