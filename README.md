@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/banner.png" alt="snow mountains" width="100%" />
+  <img src="assets/banner.png" alt="banner" width="100%" />
   <h1>Hi, I'm Royee 👋</h1>
   <p><strong>Build things. Explore more.</strong></p>
   <p>
@@ -15,7 +15,7 @@
 <!-- 右侧装饰：山野等高线 -->
 <img align="right" src="assets/contour.png" alt="contours" width="360" />
 
-I build backend systems, and I'm learning to build agents — software that reads, decides and acts. Most of what I know came from reading source, breaking things, and going back out to the mountains to think about it.
+I build backend systems, and I'm learning to build agents — software that reads, decides and acts. Currently focused on Java backend engineering and AI agent development.
 
 ### 🌱 Currently Exploring
 - `Java Backend` : `Spring Boot` · `MySQL` · `Redis`
@@ -24,7 +24,7 @@ I build backend systems, and I'm learning to build agents — software that read
 ### 💻 Connect With Me
 - 🐙 GitHub : [Royee-eng](https://github.com/Royee-eng)
 - 📫 E-mail : `18743004177@163.com`
-- 🥾 LeetCode : [lucid-haslett2gl](https://leetcode.cn/u/lucid-haslett2gl)
+- 🧠 LeetCode : [lucid-haslett2gl](https://leetcode.cn/u/lucid-haslett2gl)
 
 <br>
 
