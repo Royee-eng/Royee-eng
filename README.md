@@ -27,7 +27,7 @@ I build backend systems, and I'm learning to build agents — software that read
 ### 💻 Connect With Me
 - 🐙 GitHub : [Royee-eng](https://github.com/Royee-eng)
 - 📫 E-mail : `18743004177@163.com`
-- 🥾 LeetCode : `your-handle` <!-- TODO: 换成你的力扣 ID -->
+- 🥾 LeetCode : [lucid-haslett2gl](https://leetcode.cn/u/lucid-haslett2gl)
 
 <br><br>
 
