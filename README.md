@@ -1,30 +1,14 @@
-<div align="center">
-  <img src="assets/banner.png" alt="banner" width="100%" />
-</div>
+# Hi, I'm Royee 👋
 
-<p align="center">
-  <code>☕ Java Backend</code>
-  <code>🤖 AI Agent</code>
-</p>
+**Backend & AI Agent Engineer** · Software Engineering @ University of Southampton
 
+I build backend systems and I'm learning to build agents — software that reads, decides and acts.
 
-## ABOUT ME
-### 🏫 University of Southampton | Software Engineering
+### Currently Exploring
+- `Java Backend` : Spring Boot · MySQL · Redis
+- `AI Agent` : LLM Application · RAG · MCP
 
-I build backend systems, and I'm learning to build agents — software that reads, decides and acts. Currently focused on Java backend engineering and AI agent development.
-
-### 🌱 Currently Exploring
-- `Java Backend` : `Spring Boot` · `MySQL` · `Redis`
-- `AI Agent` : `LLM Application` · `RAG` · `MCP`
-
-### 💻 Connect With Me
-- 🐙 GitHub : [Royee-eng](https://github.com/Royee-eng)
-- 📫 E-mail : `18743004177@163.com`
-- 🧠 LeetCode : [lucid-haslett2gl](https://leetcode.cn/u/lucid-haslett2gl)
-
-<br>
-
-## 🧰 TECH STACK
+## 🧰 Tech Stack
 
 <a href="https://www.java.com/"><img src="assets/badges/java.png" alt="Java" height="20" /></a>
 <a href="https://www.python.org/"><img src="assets/badges/python.png" alt="Python" height="20" /></a>
@@ -38,13 +22,8 @@ I build backend systems, and I'm learning to build agents — software that read
 <a href="https://www.linux.org/"><img src="assets/badges/linux.png" alt="Linux" height="20" /></a>
 <a href="https://www.jetbrains.com/idea/"><img src="assets/badges/intellij-idea.png" alt="IntelliJ IDEA" height="20" /></a>
 
-<br><br>
+## 📫 Connect
 
-<!-- 贪吃蛇贡献动画：由 GitHub Actions 每天自动生成 -->
-<div align="center" style="margin: 20px 0; width: 100%;">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Royee-eng/Royee-eng/output/github-contribution-grid-snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Royee-eng/Royee-eng/output/github-contribution-grid-snake.svg">
-    <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/Royee-eng/Royee-eng/output/github-contribution-grid-snake.svg" style="width: 100%; border-radius: 8px;">
-  </picture>
-</div>
+- GitHub: [Royee-eng](https://github.com/Royee-eng)
+- Email: `18743004177@163.com`
+- LeetCode: [lucid-haslett2gl](https://leetcode.cn/u/lucid-haslett2gl)
