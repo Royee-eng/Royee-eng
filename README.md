@@ -1,9 +1,7 @@
 <div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=19&pause=1000&color=7E9583&center=true&vCenter=true&width=520&lines=I'm+Royee,+Backend+%26+AI+Agent+Engineer" alt="typing" />
-  <p>
-    <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="26px" height="26px" />
-    <strong>Build things. Explore more.</strong>
-  </p>
+  <img src="assets/banner.png" alt="snow mountains" width="100%" />
+  <h1>Hi, I'm Royee 👋</h1>
+  <p><strong>Build things. Explore more.</strong></p>
   <p>
     <code>🌲 Java Backend</code>
     <code>🏔️ AI Agent</code>
@@ -29,34 +27,22 @@ I build backend systems, and I'm learning to build agents — software that read
 - 📫 E-mail : `18743004177@163.com`
 - 🥾 LeetCode : [lucid-haslett2gl](https://leetcode.cn/u/lucid-haslett2gl)
 
+<br>
+
+<!-- 技术栈（自托管徽章） -->
+<img src="assets/badges/java.png" alt="Java" height="20" />
+<img src="assets/badges/python.png" alt="Python" height="20" />
+<img src="assets/badges/spring-boot.png" alt="Spring Boot" height="20" />
+<img src="assets/badges/mysql.png" alt="MySQL" height="20" />
+<img src="assets/badges/redis.png" alt="Redis" height="20" />
+<img src="assets/badges/docker.png" alt="Docker" height="20" />
+<img src="assets/badges/maven.png" alt="Maven" height="20" />
+<img src="assets/badges/langchain.png" alt="LangChain" height="20" />
+<img src="assets/badges/git.png" alt="Git" height="20" />
+<img src="assets/badges/linux.png" alt="Linux" height="20" />
+<img src="assets/badges/intellij-idea.png" alt="IntelliJ IDEA" height="20" />
+
 <br><br>
-
-<!-- 技术栈徽章 —— 山野配色 -->
-[![Java](https://img.shields.io/badge/Java-16241F?style=flat-square&logo=openjdk&logoColor=C9D6CD)](https://www.java.com/)
-[![Python](https://img.shields.io/badge/Python-16241F?style=flat-square&logo=python&logoColor=C9D6CD)](https://www.python.org/)
-[![Spring Boot](https://img.shields.io/badge/Spring_Boot-16241F?style=flat-square&logo=springboot&logoColor=C9D6CD)](https://spring.io/projects/spring-boot)
-[![MySQL](https://img.shields.io/badge/MySQL-16241F?style=flat-square&logo=mysql&logoColor=C9D6CD)](https://www.mysql.com/)
-
-[![Redis](https://img.shields.io/badge/Redis-16241F?style=flat-square&logo=redis&logoColor=C9D6CD)](https://redis.io/)
-[![Docker](https://img.shields.io/badge/Docker-16241F?style=flat-square&logo=docker&logoColor=C9D6CD)](https://www.docker.com/)
-[![Maven](https://img.shields.io/badge/Maven-16241F?style=flat-square&logo=apache-maven&logoColor=C9D6CD)](https://maven.apache.org/)
-[![LangChain](https://img.shields.io/badge/LangChain-16241F?style=flat-square&logo=langchain&logoColor=C9D6CD)](https://python.langchain.com/)
-
-[![Git](https://img.shields.io/badge/Git-16241F?style=flat-square&logo=git&logoColor=C9D6CD)](https://git-scm.com/)
-[![Linux](https://img.shields.io/badge/Linux-16241F?style=flat-square&logo=linux&logoColor=C9D6CD)](https://www.linux.org/)
-[![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ_IDEA-16241F?style=flat-square&logo=intellijidea&logoColor=C9D6CD)](https://www.jetbrains.com/idea/)
-
-
-<!-- 联系徽章 -->
-<div align="center" style="margin: 20px 0">
-  <a href="https://github.com/Royee-eng">
-    <img src="https://img.shields.io/badge/GitHub-Royee--eng-16241F?style=for-the-badge&logo=github&logoColor=E9E5D8" alt="GitHub" />
-  </a>
-  <a href="mailto:18743004177@163.com">
-    <img src="https://img.shields.io/badge/Email-16241F?style=for-the-badge&logo=gmail&logoColor=E9E5D8" alt="Email" />
-  </a>
-</div>
-
 
 <!-- 贪吃蛇贡献动画：由 GitHub Actions 每天自动生成 -->
 <div align="center" style="margin: 20px 0; width: 100%;">
