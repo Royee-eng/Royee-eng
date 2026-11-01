@@ -16,7 +16,7 @@
 ### 🏫 University of Southampton | Software Engineering
 
 <!-- 右侧装饰：山野等高线 -->
-<img align="right" src="assets/contour.svg" alt="contours" width="360" />
+<img align="right" src="assets/contour.png" alt="contours" width="360" />
 
 I build backend systems, and I'm learning to build agents — software that reads, decides and acts. Most of what I know came from reading source, breaking things, and going back out to the mountains to think about it.
 
@@ -26,7 +26,7 @@ I build backend systems, and I'm learning to build agents — software that read
 
 ### 💻 Connect With Me
 - 🐙 GitHub : [Royee-eng](https://github.com/Royee-eng)
-- 📫 E-mail : `your@email.com` <!-- TODO: 换成真实邮箱 -->
+- 📫 E-mail : `18743004177@163.com`
 - 🥾 LeetCode : `your-handle` <!-- TODO: 换成你的力扣 ID -->
 
 <br><br>
@@ -52,7 +52,7 @@ I build backend systems, and I'm learning to build agents — software that read
   <a href="https://github.com/Royee-eng">
     <img src="https://img.shields.io/badge/GitHub-Royee--eng-16241F?style=for-the-badge&logo=github&logoColor=E9E5D8" alt="GitHub" />
   </a>
-  <a href="mailto:your@email.com">
+  <a href="mailto:18743004177@163.com">
     <img src="https://img.shields.io/badge/Email-16241F?style=for-the-badge&logo=gmail&logoColor=E9E5D8" alt="Email" />
   </a>
 </div>
