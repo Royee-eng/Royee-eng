@@ -1,19 +1,15 @@
 <div align="center">
   <img src="assets/banner.png" alt="banner" width="100%" />
-  <h1>Hi, I'm Royee 👋</h1>
-  <p><strong>Build things. Explore more.</strong></p>
-  <p>
-    <code>🌲 Java Backend</code>
-    <code>🏔️ AI Agent</code>
-  </p>
 </div>
+
+<p align="center">
+  <code>☕ Java Backend</code>
+  <code>🤖 AI Agent</code>
+</p>
 
 
 ## ABOUT ME
 ### 🏫 University of Southampton | Software Engineering
-
-<!-- 右侧装饰：山野等高线 -->
-<img align="right" src="assets/contour.png" alt="contours" width="360" />
 
 I build backend systems, and I'm learning to build agents — software that reads, decides and acts. Currently focused on Java backend engineering and AI agent development.
 
