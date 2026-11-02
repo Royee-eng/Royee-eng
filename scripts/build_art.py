@@ -142,6 +142,32 @@ def build_beyond():
     write("beyond.svg",svg(1200,180,"Beyond code: hiking, sport, and photography.",body))
 
 
+def build_mobile_beyond_and_contacts():
+    body = ''.join(polyline(p,MUTED,1,.16) for p in relief(370,180,15,12,1.8))
+    icons = [
+        '<path d="M0 42L27 0L41 21L55 7L82 42ZM17 17L27 25L37 16M41 42L51 31L44 26"/>',
+        '<circle cx="39" cy="6" r="7"/><path d="M36 18L23 34L38 44L29 63M36 18L52 29L66 23M36 18L21 16L8 28M23 34L7 53L0 53"/>',
+        '<path d="M0 10H16L22 0H44L50 10H68V49H0Z"/><circle cx="34" cy="30" r="13"/>',
+    ]
+    for i, (title, caption) in enumerate([("Hiking", "Find a new trail."), ("Sport", "Keep moving."), ("Photography", "Notice more.")]):
+        y = 22 + i * 100
+        if i:
+            body += f'<path d="M24 {y-12}H366" stroke="{MUTED}" opacity=".35"/>'
+        body += f'<g transform="translate(28 {y+7}) scale(.8)" fill="none" stroke="{ACCENT}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">{icons[i]}</g>'
+        body += text(120,y+30,title,26,FG,600) + text(120,y+57,caption,16,ACCENT)
+    write("beyond-mobile.svg",svg(390,320,"Hiking, sport and photography.",body))
+    # Logo paths: Simple Icons (CC0); see docs/ASSETS.md.
+    for name, label, width, color, icon in [
+        ("email", "18743004177@163.COM", 258, "#D14836", "M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"),
+        ("leetcode", "LEETCODE", 128, "#FFA116", "M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"),
+    ]:
+        badge = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="28" viewBox="0 0 {width} 28" role="img" aria-label="{label}">'
+                 f'<title>{label}</title><rect width="{width}" height="28" fill="{color}"/>'
+                 f'<path transform="translate(10 6) scale(.667)" fill="white" d="{icon}"/>'
+                 f'<text x="35" y="18" fill="white" font-family="Verdana,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">{label}</text></svg>\n')
+        write(f"contact-{name}.svg",badge)
+
+
 def build_gif():
     from PIL import Image, ImageDraw, ImageFont
     def font(size, bold=False):
@@ -176,5 +202,5 @@ def build_gif():
 
 if __name__ == "__main__":
     ASSETS.mkdir(parents=True,exist_ok=True)
-    build_about(); build_trail(); build_mobile(); build_badges(); build_beyond(); build_gif()
+    build_about(); build_trail(); build_mobile(); build_badges(); build_beyond(); build_mobile_beyond_and_contacts(); build_gif()
     print("Built about, desktop/mobile trail, badges, beyond-code SVGs and 6-second trail GIF.")

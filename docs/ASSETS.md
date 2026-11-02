@@ -14,3 +14,7 @@ Color palette: ink forest green, charcoal, cool slate grey, fog white; desaturat
 Typography: Very large clean modern sans-serif fog-white text on left, exact text "Hi, I'm Royee". It should occupy roughly the left 48% of the banner and remain clear when the image is reduced to 360px width. Below the name in much smaller understated spaced uppercase letters, exact text "BUILD THINGS. EXPLORE MORE." Keep both comfortably inset from edges.
 Composition: strong cinematic panoramic mountain photography, generous breathing room, mountain peak visible and uncluttered on right. Mist adds softness while retaining natural snow and rock detail. The banner is one complete finished image, not a webpage mockup.
 Constraints: Only the two specified text lines. No characters, silhouettes, logos, icons, statistics, badges, controls, watermark, signatures, invented location, or extra labels. Opaque background.
+
+## Contact badge icons
+
+The red email and orange LeetCode badges follow the user-provided reference. Both are local SVG assets built by `scripts/build_art.py`, with Royee's own contact destinations. Logo paths come from [Simple Icons](https://github.com/simple-icons/simple-icons), distributed under CC0: [Gmail](https://github.com/simple-icons/simple-icons/blob/develop/icons/gmail.svg), [LeetCode](https://github.com/simple-icons/simple-icons/blob/develop/icons/leetcode.svg). The mail logo is a contact symbol, not a claim about the email provider.

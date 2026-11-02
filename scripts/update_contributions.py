@@ -144,7 +144,7 @@ def parse_calendar(payload: dict, login: str) -> list[list[Day]]:
     return weeks
 
 
-def render_svg(login: str, weeks: list[list[Day]], updated_at: datetime) -> str:
+def render_svg(login: str, weeks: list[list[Day]], updated_at: datetime, *, mobile: bool = False) -> str:
     """Render the latest 26 calendar columns, including a partial current week."""
     shown = weeks[-26:]
     days = [day for week in shown for day in week]
@@ -157,59 +157,74 @@ def render_svg(login: str, weeks: list[list[Day]], updated_at: datetime) -> str:
         "Only the displayed days are counted. Visibility follows GitHub API permissions. "
         f"Updated {updated}."
     )
+    width, height = (390, 586) if mobile else (720, 350)
+    margin = 24 if mobile else 32
     parts = [
-        '<svg xmlns="http://www.w3.org/2000/svg" width="720" height="350" viewBox="0 0 720 350" role="img" aria-labelledby="title desc">',
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">',
         f'<title id="title">{escape(login)} — GitHub Contributions</title>',
         f'<desc id="desc">{escape(description)}</desc>',
-        '<rect width="720" height="350" rx="16" fill="#101c19"/>',
-        '<rect x="0.5" y="0.5" width="719" height="349" rx="15.5" fill="none" stroke="#2b3d36"/>',
+        f'<rect width="{width}" height="{height}" rx="16" fill="#101c19"/>',
+        f'<rect x="0.5" y="0.5" width="{width-1}" height="{height-1}" rx="15.5" fill="none" stroke="#2b3d36"/>',
         '<g font-family="Arial, Helvetica, sans-serif">',
-        '<text x="32" y="35" fill="#9cb3a7" font-size="13" letter-spacing="2">GITHUB CONTRIBUTIONS</text>',
-        f'<text x="32" y="78" fill="#e7efeb" font-size="32" font-weight="600">{total:,} contributions</text>',
-        f'<text x="32" y="105" fill="#a4b8ae" font-size="17">{escape(period)}</text>',
-        f'<text x="688" y="35" text-anchor="end" fill="#a4b8ae" font-size="13">{len(shown)} WEEKS</text>',
+        f'<text x="{margin}" y="35" fill="#9cb3a7" font-size="13" letter-spacing="2">GITHUB CONTRIBUTIONS</text>',
+        f'<text x="{margin}" y="78" fill="#e7efeb" font-size="{30 if mobile else 32}" font-weight="600">{total:,} contributions</text>',
+        f'<text x="{margin}" y="105" fill="#a4b8ae" font-size="{15 if mobile else 17}">{escape(period)}</text>',
+        f'<text x="{width-margin}" y="35" text-anchor="end" fill="#a4b8ae" font-size="{11 if mobile else 13}">{len(shown)} WEEKS</text>',
     ]
-    x_start, y_start, step, size = 112, 143, 20, 16
-    for weekday, label in ((1, "Mon"), (3, "Wed"), (5, "Fri")):
-        parts.append(f'<text x="76" y="{y_start + weekday * step + 12}" text-anchor="end" fill="#9cb3a7" font-size="13">{label}</text>')
-    last_month = None
-    last_label_column = -3
-    for column, week in enumerate(shown):
-        month = (week[0].date.year, week[0].date.month)
-        # Three columns between labels avoids collisions across short months.
-        if month != last_month and column - last_label_column >= 3 and column <= len(shown) - 3:
-            parts.append(f'<text x="{x_start + column * step}" y="133" fill="#9cb3a7" font-size="12">{week[0].date:%b}</text>')
-            last_label_column = column
-        last_month = month
-        for day in week:
-            x, y = x_start + column * step, y_start + day.weekday * step
-            parts.append(
-                f'<rect x="{x}" y="{y}" width="{size}" height="{size}" rx="3" fill="{COLORS[day.level]}">'
-                f'<title>{day.date}: {day.count} contributions</title></rect>'
-            )
+    # The mobile card wraps the same 26 weeks into two chronological rows.
+    panels = [shown[:13], shown[13:]] if mobile else [shown]
+    x_start, step, size = (54, 23, 17) if mobile else (112, 20, 16)
+    for panel_index, panel in enumerate(panels):
+        y_start = 143 + panel_index * 190
+        for weekday, label in ((1, "Mon"), (3, "Wed"), (5, "Fri")):
+            parts.append(f'<text x="{40 if mobile else 76}" y="{y_start + weekday * step + 12}" text-anchor="end" fill="#9cb3a7" font-size="13">{label}</text>')
+        last_month = None
+        last_label_column = -3
+        for column, week in enumerate(panel):
+            month = (week[0].date.year, week[0].date.month)
+            # Three columns between labels avoids collisions across short months.
+            if month != last_month and column - last_label_column >= 3 and column <= len(panel) - 3:
+                parts.append(f'<text x="{x_start + column * step}" y="{y_start-10}" fill="#9cb3a7" font-size="12">{week[0].date:%b}</text>')
+                last_label_column = column
+            last_month = month
+            for day in week:
+                x, y = x_start + column * step, y_start + day.weekday * step
+                parts.append(
+                    f'<rect x="{x}" y="{y}" width="{size}" height="{size}" rx="3" fill="{COLORS[day.level]}">'
+                    f'<title>{day.date}: {day.count} contributions</title></rect>'
+                )
+    footer_y = 552 if mobile else 310
+    legend_x, legend_y = (244, 510) if mobile else (550, 300)
     parts.extend([
-        f'<text x="32" y="310" fill="#a4b8ae" font-size="13">Updated {escape(updated)}</text>',
-        '<text x="32" y="332" fill="#7f9a8c" font-size="12">Source: GitHub API · visibility follows account permissions</text>',
-        '<text x="518" y="312" fill="#9cb3a7" font-size="12">Less</text>',
+        f'<text x="{margin}" y="{footer_y}" fill="#a4b8ae" font-size="13">Updated {escape(updated)}</text>',
+        f'<text x="{margin}" y="{footer_y+22}" fill="#7f9a8c" font-size="{11 if mobile else 12}">Source: GitHub API · {"daily snapshot" if mobile else "visibility follows account permissions"}</text>',
+        f'<text x="{legend_x-32}" y="{legend_y+12}" fill="#9cb3a7" font-size="12">Less</text>',
     ])
     for index, color in enumerate(COLORS.values()):
-        parts.append(f'<rect x="{550 + index * 19}" y="300" width="15" height="15" rx="3" fill="{color}"/>')
-    parts.extend(['<text x="652" y="312" fill="#9cb3a7" font-size="12">More</text>', '</g>', '</svg>', ''])
+        parts.append(f'<rect x="{legend_x + index * 19}" y="{legend_y}" width="15" height="15" rx="3" fill="{color}"/>')
+    parts.extend([f'<text x="{legend_x+102}" y="{legend_y+12}" fill="#9cb3a7" font-size="12">More</text>', '</g>', '</svg>', ''])
     return "\n".join(parts)
 
 
 def update(output: Path, login: str, token: str, now: datetime | None = None) -> None:
     weeks = parse_calendar(fetch_calendar(login, token), login)
-    svg = render_svg(login, weeks, now or datetime.now(timezone.utc))
+    updated_at = now or datetime.now(timezone.utc)
+    variants = {
+        output: render_svg(login, weeks, updated_at),
+        output.with_name(f"{output.stem}-mobile.svg"): render_svg(login, weeks, updated_at, mobile=True),
+    }
     output.parent.mkdir(parents=True, exist_ok=True)
-    temporary = None
+    temporary_files = {}
     try:
-        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=output.parent, suffix=".svg.tmp", delete=False) as handle:
-            temporary = Path(handle.name)
-            handle.write(svg)
-        temporary.replace(output)
+        for destination, svg in variants.items():
+            with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=output.parent, suffix=".svg.tmp", delete=False) as handle:
+                temporary = Path(handle.name)
+                temporary_files[destination] = temporary
+                handle.write(svg)
+        for destination, temporary in temporary_files.items():
+            temporary.replace(destination)
     finally:
-        if temporary is not None:
+        for temporary in temporary_files.values():
             temporary.unlink(missing_ok=True)
 
 

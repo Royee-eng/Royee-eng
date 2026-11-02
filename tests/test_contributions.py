@@ -105,6 +105,22 @@ class ContributionsTests(unittest.TestCase):
         self.assertIn("2026-01-13: 0 contributions", svg)
         self.assertNotIn("2026-01-14:", svg)
 
+    def test_mobile_wrap_preserves_dates_counts_and_stays_inside_card(self):
+        weeks = contributions.parse_calendar(response_fixture(28), "Royee-eng")
+        now = datetime(2026, 7, 20, tzinfo=timezone.utc)
+        desktop = ET.fromstring(contributions.render_svg("Royee-eng", weeks, now))
+        mobile = ET.fromstring(contributions.render_svg("Royee-eng", weeks, now, mobile=True))
+        ns = "{http://www.w3.org/2000/svg}"
+        def cells(root):
+            return [e for e in root.iter(ns + "rect") if e.find(ns + "title") is not None]
+        self.assertEqual([e.find(ns + "title").text for e in cells(desktop)],
+                         [e.find(ns + "title").text for e in cells(mobile)])
+        for cell in cells(mobile):
+            self.assertLess(float(cell.get("x")) + float(cell.get("width")), 390)
+            self.assertLess(float(cell.get("y")) + float(cell.get("height")), 510)
+        self.assertEqual(len({e.get("x") for e in cells(mobile)}), 13)
+        self.assertIn("78 contributions", ET.tostring(mobile).decode())
+
     def test_valid_zero_calendar_remains_distinct_from_missing_data(self):
         payload = response_fixture()
         calendar_of(payload)["totalContributions"] = 0
@@ -119,6 +135,8 @@ class ContributionsTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "contributions.svg"
             output.write_text("previous-valid-image")
+            mobile = output.with_name("contributions-mobile.svg")
+            mobile.write_text("previous-valid-mobile")
             with patch.object(contributions, "fetch_calendar", side_effect=contributions.ContributionError("API failed")):
                 with self.assertRaises(contributions.ContributionError):
                     contributions.update(output, "Royee-eng", "test-token")
@@ -127,7 +145,8 @@ class ContributionsTests(unittest.TestCase):
                 with self.assertRaises(contributions.ContributionError):
                     contributions.update(output, "Royee-eng", "test-token")
             self.assertEqual(output.read_text(), "previous-valid-image")
-            self.assertEqual(list(output.parent.iterdir()), [output])
+            self.assertEqual(mobile.read_text(), "previous-valid-mobile")
+            self.assertEqual(set(output.parent.iterdir()), {output, mobile})
 
     def test_success_replaces_file_with_valid_svg(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -137,7 +156,10 @@ class ContributionsTests(unittest.TestCase):
                 contributions.update(output, "Royee-eng", "test-token")
             ET.fromstring(output.read_text())
             self.assertIn("6 contributions", output.read_text())
-            self.assertEqual(list(output.parent.iterdir()), [output])
+            mobile = output.with_name("contributions-mobile.svg")
+            ET.fromstring(mobile.read_text())
+            self.assertIn("6 contributions", mobile.read_text())
+            self.assertEqual(set(output.parent.iterdir()), {output, mobile})
 
     def test_missing_token_fails_without_a_request(self):
         with patch.object(contributions, "urlopen") as request:

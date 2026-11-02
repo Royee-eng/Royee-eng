@@ -35,6 +35,8 @@
 - 徒步路线动画只作装饰，不表示完成未来阶段；小屏幕和减少动态效果模式使用静态 SVG。
 - 路线下方三个 `<details>` 节点可在 GitHub 内点击展开，是 README 支持的原生交互；不要把节点描述成已经掌握或已经完成的项目。
 - Python 徽章对应此前确认的技术展示方向；如果不再学习，可直接删除该 `<img>`。
+- Java / Python 徽章链接到官方学习资料；Agent systems 徽章跳到成长路线。联系方式徽章链接到本人邮箱及 LeetCode，不能改成素材文件链接。
+- `beyond-mobile.svg` 使用相同的兴趣和线条图标，窄屏自动切换为纵向排列。
 
 ## 加入徒步与摄影
 
@@ -42,15 +44,17 @@
 
 ## 贡献图自动更新
 
-`.github/workflows/contributions.yml` 每天 06:17 UTC 请求 GitHub 官方 GraphQL API，并更新仓库内 `assets/contributions.svg`。也可在 Actions → Refresh contributions → Run workflow 手动更新。
+`.github/workflows/contributions.yml` 设定每天 06:17 UTC 请求 GitHub 官方 GraphQL API，并更新 `assets/contributions.svg` 与 `assets/contributions-mobile.svg`。也可在 Actions → Refresh contributions → Run workflow 手动更新。
 
 - 仅使用仓库自带的 `github.token`，不需要个人访问令牌或第三方统计服务。
 - 图片展示 GitHub 返回的最近 26 周贡献，不是全部历史；公开活动受 GitHub 的可见性规则影响。
+- 手机端将同样的 26 周分成上下两行，每行 13 周，按从左到右、从上到下的时间顺序阅读；两个版本使用相同数据和更新时间。
 - 请求失败、身份不匹配或数据不合法时工作流失败并保留上一次有效图片，绝不会用随机数据或假零值替代。
 - 图片带生成时间。GitHub 图片代理可能缓存，工作流定时任务也可能延迟；官方个人页是实时核对入口。
-- 贡献卡片不包外链，避免在个人主页点击后重新加载同一页面并跳回顶部。卡片下方文字明确说明它是每日快照。
+- 整张贡献卡和下方文字链接指向 `https://github.com/Royee-eng#js-contribution-activity-description`，直接定位到 GitHub 原生可交互日历。请保留完整 URL 与锚点：只链接个人主页会回到顶部，只写锚点则在仓库 README 页面无法找到目标。
+- README 中的 SVG 是每日快照；逐日查询由跳转后的 GitHub 原生日历提供。GitHub 若修改原生区块 ID，需要重新检查定位。
 - 公开仓库连续 60 天无活动，GitHub 可能暂停定时任务。重新启用工作流即可。
-- 工作流仅提交贡献图，由 Actions bot 署名；不会为了装饰伪造个人提交记录。
+- 工作流提交两张贡献图及 README 中两张图片的缓存版本号，由 Actions bot 署名；不会为了装饰伪造个人提交记录。
 
 验证：`python3 -m unittest discover -s tests -p 'test_contributions.py' -v`。
 

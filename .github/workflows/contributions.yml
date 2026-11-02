@@ -39,11 +39,22 @@ jobs:
       - name: Version the contribution image URL
         run: |
           snapshot_version="$(date -u +%Y%m%d%H%M%S)"
-          perl -0pi -e "s#assets/contributions\\.svg(?:\\?v=[0-9]+)?#assets/contributions.svg?v=${snapshot_version}#g" README.md
+          SNAPSHOT_VERSION="$snapshot_version" python3 - <<'PY'
+          import os
+          import re
+          from pathlib import Path
+          readme = Path("README.md")
+          content = re.sub(
+              r"(assets/contributions(?:-mobile)?\.svg)(?:\?v=[0-9]+)?",
+              lambda match: f"{match[1]}?v={os.environ['SNAPSHOT_VERSION']}",
+              readme.read_text(),
+          )
+          readme.write_text(content)
+          PY
 
       - name: Save a successful snapshot
         run: |
-          git add -- assets/contributions.svg README.md
+          git add -- assets/contributions.svg assets/contributions-mobile.svg README.md
           if git diff --cached --quiet; then
             exit 0
           fi
