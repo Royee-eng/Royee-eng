@@ -33,12 +33,20 @@ Tools I'm learning and exploring.
   <a href="https://www.docker.com/"><img src="assets/tools/docker.png" alt="Docker" width="30%"></a>
 </p>
 
-### Learning & exploring
+### Tech stack
 
 <p>
-  <a href="https://dev.java/learn/"><img src="assets/badge-java.svg" alt="Java — learning. Open the official Java learning resources." height="36"></a>
-  <a href="https://docs.python.org/3/tutorial/"><img src="assets/badge-python.svg" alt="Python — learning. Open the official Python tutorial." height="36"></a>
-  <a href="#development-trail"><img src="assets/badge-agents.svg" alt="Agent systems — exploring. View my development trail." height="36"></a>
+  <a href="https://www.java.com/"><img src="assets/badges/java.png" alt="Java" height="20"></a>
+  <a href="https://isocpp.org/"><img src="https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&amp;logo=c%2B%2B&amp;logoColor=white" alt="C++" height="20"></a>
+  <a href="https://spring.io/projects/spring-boot"><img src="assets/badges/spring-boot.png" alt="Spring Boot" height="20"></a>
+  <a href="https://www.mysql.com/"><img src="assets/badges/mysql.png" alt="MySQL" height="20"></a>
+  <a href="https://redis.io/"><img src="assets/badges/redis.png" alt="Redis" height="20"></a>
+</p>
+
+<p>
+  <a href="https://maven.apache.org/"><img src="assets/badges/maven.png" alt="Maven" height="20"></a>
+  <a href="https://git-scm.com/"><img src="assets/badges/git.png" alt="Git" height="20"></a>
+  <a href="https://www.jetbrains.com/idea/"><img src="assets/badges/intellij-idea.png" alt="IntelliJ IDEA" height="20"></a>
 </p>
 
 ## Development Trail
