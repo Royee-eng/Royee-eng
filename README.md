@@ -94,8 +94,8 @@ I'll add projects here when they're ready to share and maintain.
 
 <a href="https://github.com/Royee-eng#js-contribution-activity-description">
   <picture>
-    <source media="(max-width: 600px)" srcset="assets/contributions-mobile.svg?v=20261125170759">
-    <img src="assets/contributions.svg?v=20261125170759" alt="Royee-eng's last 26 weeks of contributions. Click to open GitHub's interactive calendar and activity below." width="100%">
+    <source media="(max-width: 600px)" srcset="assets/contributions-mobile.svg?v=20261126164916">
+    <img src="assets/contributions.svg?v=20261126164916" alt="Royee-eng's last 26 weeks of contributions. Click to open GitHub's interactive calendar and activity below." width="100%">
   </picture>
 </a>
 
